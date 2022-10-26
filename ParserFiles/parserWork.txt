@@ -1,0 +1,31 @@
+
+Fill this out and submitIt_LK this file with the executable.
+
+Group#:
+
+Must have divided the work as specified.
+If the member did not fully contribute to the assigned part, do not list his/her name!
+
+1.State who did what by indicating: 
+  Member A tasks (syntax error functions) - who:
+  Member B tasks (match and next_token)- who:
+  Member C tasks (main()) who:
+  Who wrote which parser functions? 
+  functions             who
+  ----------------      ----------
+
+2.  Who came to the meeting to test the program together?
+
+3.  You have included all the required comments? 
+    (Grammer: and Done by: )
+
+4.  The parser produced correct output for 
+    all 6 test cases?
+
+5.  What extra credit feature did you include?
+    If it is error correction, did you make sure errors.txt
+    got produced?
+    [ You may still do EC later ]
+        
+checkIt_LK in 24 hours and immediately correct and resubmit.     
+

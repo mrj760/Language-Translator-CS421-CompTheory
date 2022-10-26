@@ -1,0 +1,105 @@
+Input file name: scannertest1
+
+"watashi" is token type PRONOUN
+
+"wa" is token type SUBJECT
+
+"rika" is token type WORD1
+
+"desu" is token type IS
+
+"." is token type PERIOD
+
+"watashi" is token type PRONOUN
+
+"wa" is token type SUBJECT
+
+"sensei" is token type WORD1
+
+"desu" is token type IS
+
+"." is token type PERIOD
+
+"watashi" is token type PRONOUN
+
+"wa" is token type SUBJECT
+
+"ryouri" is token type WORD1
+
+"o" is token type OBJECT
+
+"yarI" is token type WORD2
+
+"masu" is token type VERB
+
+"." is token type PERIOD
+
+"watashi" is token type PRONOUN
+
+"wa" is token type SUBJECT
+
+"gohan" is token type WORD1
+
+"o" is token type OBJECT
+
+"seito" is token type WORD1
+
+"ni" is token type DESTINATION
+
+"agE" is token type WORD2
+
+"mashita" is token type VERBPAST
+
+"." is token type PERIOD
+
+"shikashi" is token type CONNECTOR
+
+"seito" is token type WORD1
+
+"wa" is token type SUBJECT
+
+"yorokobI" is token type WORD2
+
+"masendeshita" is token type VERBPASTNEG
+
+"." is token type PERIOD
+
+"dakara" is token type CONNECTOR
+
+"watashi" is token type PRONOUN
+
+"wa" is token type SUBJECT
+
+"kanashii" is token type WORD1
+
+"deshita" is token type WAS
+
+"." is token type PERIOD
+
+"soshite" is token type CONNECTOR
+
+"watashi" is token type PRONOUN
+
+"wa" is token type SUBJECT
+
+"toire" is token type WORD1
+
+"ni" is token type DESTINATION
+
+"ikI" is token type WORD2
+
+"mashita" is token type VERBPAST
+
+"." is token type PERIOD
+
+"watashi" is token type PRONOUN
+
+"wa" is token type SUBJECT
+
+"nakI" is token type WORD2
+
+"mashita" is token type VERBPAST
+
+"." is token type PERIOD
+
+End of file is encountered.

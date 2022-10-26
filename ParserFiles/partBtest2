@@ -1,0 +1,12 @@
+
+
+soshite watashi wa rika desu ne .
+watashi wa sensei desu .
+eofm
+
+/* syntax error 
+rule 3 is used but ne is extra at the end and does not match PERIOD 
+This case is useful to test error recovery to skip a token.
+*/
+
+

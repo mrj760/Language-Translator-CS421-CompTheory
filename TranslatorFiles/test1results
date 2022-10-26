@@ -1,0 +1,39 @@
+ACTOR: I/me
+DESCRIPTION: rika
+TENSE: IS
+
+ACTOR: I/me
+DESCRIPTION: teacher
+TENSE: IS
+
+ACTOR: rika
+OBJECT: meal
+ACTION: eat
+TENSE: VERB
+
+ACTOR: I/me
+OBJECT: test
+TO: student
+ACTION: give
+TENSE: VERBPAST
+
+CONNECTOR: However
+ACTOR: student
+ACTION: enjoy
+TENSE: VERBPASTNEG
+
+CONNECTOR: Therefore
+ACTOR: I/me
+DESCRIPTION: sad
+TENSE: WAS
+
+CONNECTOR: Then
+ACTOR: rika
+TO: restroom
+ACTION: go
+TENSE: VERBPAST
+
+ACTOR: rika
+ACTION: cry
+TENSE: VERBPAST
+

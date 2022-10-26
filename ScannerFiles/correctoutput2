@@ -1,0 +1,187 @@
+Input file name: scannertest2
+
+"daigaku" is token type WORD1
+
+Lexical error: college is not a valid token
+"college" is token type ERROR
+
+"kurasu" is token type WORD1
+
+Lexical error: class is not a valid token
+"class" is token type ERROR
+
+"hon" is token type WORD1
+
+Lexical error: book is not a valid token
+"book" is token type ERROR
+
+"tesuto" is token type WORD1
+
+Lexical error: test is not a valid token
+"test" is token type ERROR
+
+"ie" is token type WORD1
+
+Lexical error: home* is not a valid token
+"home*" is token type ERROR
+
+"isu" is token type WORD1
+
+Lexical error: chair is not a valid token
+"chair" is token type ERROR
+
+"seito" is token type WORD1
+
+Lexical error: student is not a valid token
+"student" is token type ERROR
+
+"sensei" is token type WORD1
+
+Lexical error: teacher is not a valid token
+"teacher" is token type ERROR
+
+"tomodachi" is token type WORD1
+
+Lexical error: friend is not a valid token
+"friend" is token type ERROR
+
+"jidoosha" is token type WORD1
+
+Lexical error: car is not a valid token
+"car" is token type ERROR
+
+"gyuunyuu" is token type WORD1
+
+Lexical error: milk is not a valid token
+"milk" is token type ERROR
+
+"sukiyaki" is token type WORD1
+
+"tenpura" is token type WORD1
+
+"sushi" is token type WORD1
+
+"biiru" is token type WORD1
+
+Lexical error: beer is not a valid token
+"beer" is token type ERROR
+
+"sake" is token type WORD1
+
+"tokyo" is token type WORD1
+
+"kyuushuu" is token type WORD1
+
+Lexical error: Osaka is not a valid token
+"Osaka" is token type ERROR
+
+"choucho" is token type WORD1
+
+Lexical error: butterfly is not a valid token
+"butterfly" is token type ERROR
+
+"an" is token type WORD1
+
+"idea" is token type WORD1
+
+"yasashii" is token type WORD1
+
+Lexical error: easy is not a valid token
+"easy" is token type ERROR
+
+"muzukashii" is token type WORD1
+
+Lexical error: difficult is not a valid token
+"difficult" is token type ERROR
+
+"ureshii" is token type WORD1
+
+Lexical error: pleased is not a valid token
+"pleased" is token type ERROR
+
+"shiawase" is token type WORD1
+
+Lexical error: happy is not a valid token
+"happy" is token type ERROR
+
+"kanashii" is token type WORD1
+
+Lexical error: sad is not a valid token
+"sad" is token type ERROR
+
+"omoi" is token type WORD1
+
+Lexical error: heavy is not a valid token
+"heavy" is token type ERROR
+
+"oishii" is token type WORD1
+
+Lexical error: delicious is not a valid token
+"delicious" is token type ERROR
+
+"tennen" is token type WORD1
+
+Lexical error: natural is not a valid token
+"natural" is token type ERROR
+
+"nakI" is token type WORD2
+
+Lexical error: cry is not a valid token
+"cry" is token type ERROR
+
+"ikI" is token type WORD2
+
+Lexical error: go* is not a valid token
+"go*" is token type ERROR
+
+"tabE" is token type WORD2
+
+Lexical error: eat is not a valid token
+"eat" is token type ERROR
+
+"ukE" is token type WORD2
+
+Lexical error: take* is not a valid token
+"take*" is token type ERROR
+
+"kakI" is token type WORD2
+
+Lexical error: write is not a valid token
+"write" is token type ERROR
+
+"yomI" is token type WORD2
+
+Lexical error: read is not a valid token
+"read" is token type ERROR
+
+"nomI" is token type WORD2
+
+Lexical error: drink is not a valid token
+"drink" is token type ERROR
+
+"agE" is token type WORD2
+
+Lexical error: give is not a valid token
+"give" is token type ERROR
+
+"moraI" is token type WORD2
+
+Lexical error: receive is not a valid token
+"receive" is token type ERROR
+
+"butsI" is token type WORD2
+
+Lexical error: hit is not a valid token
+"hit" is token type ERROR
+
+"kerI" is token type WORD2
+
+Lexical error: kick is not a valid token
+"kick" is token type ERROR
+
+"shaberI" is token type WORD2
+
+Lexical error: talk is not a valid token
+"talk" is token type ERROR
+
+End of file is encountered.

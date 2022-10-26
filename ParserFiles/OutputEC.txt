@@ -1,0 +1,77 @@
+
+RikaSM% a.out
+Enter the input filename 
+partCtest2
+Processing <Story>
+
+Processing <S>
+Scanner called using word: soshite
+Matched CONNECTOR
+Processing <noun>
+Scanner called using word: watashi
+Matched PRONOUN
+Scanner called using word: wa
+Matched SUBJECT
+Processing <afterSubject>
+Scanner called using word: rika
+Processing <noun>
+Matched WORD1
+Processing <afterNoun>
+Scanner called using word: desu
+Processing <be>
+DESCRIPTION: rika
+Matched IS
+Scanner called using word: ne
+SYNTAX ERROR: Expected PERIOD but found ne
+Skip or replace the token? (s or r)s
+Scanner called using word: .
+Matched PERIOD
+Scanner called using word: watashi
+Processing <S>
+Processing <noun>
+Matched PRONOUN
+Scanner called using word: wa
+Matched SUBJECT
+Processing <afterSubject>
+Scanner called using word: sensei
+Processing <noun>
+Matched WORD1
+Processing <afterNoun>
+Scanner called using word: desu
+Processing <be>
+Matched IS
+Scanner called using word: .
+Matched PERIOD
+Scanner called using word: eofm
+
+
+RikaSM% a.out
+Enter the input filename 
+partCtest3
+Processing <Story>
+
+Processing <S>
+Scanner called using word: dakara
+Matched CONNECTOR
+Processing <noun>
+Scanner called using word: watashi
+Matched PRONOUN
+Scanner called using word: de
+SYNTAX ERROR: Expected SUBJECT but found de
+Skip or replace the token? (s or r)r
+Matched SUBJECT
+Processing <afterSubject>
+Scanner called using word: rika
+Processing <noun>
+Matched WORD1
+Processing <afterNoun>
+Scanner called using word: desu
+Processing <be>
+Matched IS
+Scanner called using word: .
+Matched PERIOD
+Scanner called using word: eofm
+RikaSM% exit
+exit
+
+

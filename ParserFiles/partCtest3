@@ -1,0 +1,10 @@
+
+
+dakara watashi de rika desu . 
+
+eofm
+
+/* syntax error: Expected SUBJECT but found de 
+This case is useful to test error recovery to replace de with wa.
+*/
+
