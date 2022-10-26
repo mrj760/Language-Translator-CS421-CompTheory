@@ -12,33 +12,95 @@ using namespace std;
 // --------- Two DFAs ---------------------------------
 
 // WORD DFA 
-// Done by: **
+// Done by: Ased Adus, Mical Johnson, Blake Walters  Group: 16
 // RE:   **
 bool word (string s)
 {
 
   int state = 0;
   int charpos = 0;
-  /* replace the following todo the word dfa  **
-  while (s[charpos] != '\0') 
-    {
-      if (state == 0 && s[charpos] == 'a')
-      state = 1;
-      else
-      if (state == 1 && s[charpos] == 'b')
-      state = 2;
-      else
-      if (state == 2 && s[charpos] == 'b')
-      state = 2;
-      else
-	  return(false);
-      charpos++;
-    }//end of while
 
-  // where did I end up????
-  if (state == 2) return(true);  // end in a final state
-   else return(false);
-  */
+  while (s[charpos] != '\0')
+    {
+      // State 0 is starting state                                                                                                                                               
+      if (state == 0 && s[charpos] == 'a' || s[charpos] == 'i' || s[charpos] == 'u' || s[charpos] == 'e' || s[charpos] == 'o' || s[charpos] == 'E' || s[charpos] == 'I')
+        state = 1;
+      else if (state == 0 && s[charpos] == 'd' ||  s[charpos] == 'w' || s[charpos] == 'z' || s[charpos] == 'y' || s[charpos] == 'j')
+        state = 7;
+      else if (state == 0 && s[charpos] == 's')
+        state = 4;
+      else if (state == 0 && s[charpos] == 'b' || s[charpos] == 'g' || s[charpos] == 'h' || s[charpos] == 'k' || s[charpos] == 'm' || s[charpos] == 'n' || s[charpos] == 'p' || s[charpos] == 'r')
+        state = 3;
+      else if (state == 0 && s[charpos] == 'c')
+        state = 5;
+      else if ( state == 0 && s[charpos] == 't')
+        state = 6;
+	
+      // state 1 is q0q1                                                                                                                                                                                    
+      else if ( state == 1 && s[charpos] == 'a' || s[charpos] == 'i' || s[charpos] == 'u' || s[charpos] == 'e' || s[charpos] == 'o' || s[charpos] == 'E' || s[charpos] == 'I')
+        state = 1;
+      else if (  state == 1 && s[charpos] == 'd' || s[charpos] == 'w' || s[charpos] == 'z' || s[charpos] == 'y' || s[charpos] == 'j')
+        state = 7;
+      else if ( state == 1 && s[charpos] == 'b' || s[charpos] == 'g' || s[charpos] == 'h' || s[charpos] == 'k' || s[charpos] == 'm' || s[charpos] == 'p' || s[charpos] == 'r')
+        state = 3;
+      else if ( state == 1 && s[charpos] == 'n' )
+        state = 2;
+      else if ( state == 1 && s[charpos] == 'c' )
+        state = 5;
+      else if ( state == 1 && s[charpos] == 't')
+        state = 6;
+
+      //State 2 is q0qy                                                                                                                                                                                     
+      else if ( state == 2 && s[charpos] == 'a' || s[charpos] == 'i' || s[charpos] == 'u' || s[charpos] == 'e' || s[charpos] == 'o' || s[charpos] == 'E' || s[charpos] == 'I')
+        state = 1;
+      else if ( state == 2 && s[charpos] == 's')
+        state = 4;
+      else if ( state == 2 && s[charpos] == 'b' || s[charpos] == 'g' || s[charpos] == 'h' || s[charpos] == 'k' || s[charpos] == 'm' || s[charpos] == 'p' || s[charpos] == 'r')
+        state = 3;
+      else if ( state == 2 && s[charpos] == 'd' || s[charpos] == 'w' || s[charpos] == 'z' || s[charpos] == 'y' || s[charpos] == 'j')
+        state = 7;
+      else if (state == 2 && s[charpos] == 'c')
+        state = 5;
+      else if (state == 2 && s[charpos] == 't')
+        state = 6;
+
+      // state 3 is qy                                                                                                                                                                                      
+      else if ( state == 3 &&  s[charpos] == 'a' || s[charpos] == 'i' || s[charpos] == 'u' || s[charpos] == 'e' || s[charpos] == 'o' || s[charpos] == 'E' || s[charpos] == 'I')
+        state = 1;
+      else if ( state == 3 &&  s[charpos] == 'y')
+        state = 7;
+
+      // state 4 is qs                                                                                                                                                                                      
+      else if ( state == 4 &&  s[charpos] == 'a' || s[charpos] == 'i' || s[charpos] == 'u' || s[charpos] == 'e' || s[charpos] == 'o' || s[charpos] == 'E' || s[charpos] == 'I')
+        state = 1;
+      else if ( state == 4 &&  s[charpos] == 'h')
+        state = 7;
+
+      //state 5 is qc                                                                                                                                                                                       
+      else if (state == 5 &&  s[charpos] == 'h')
+        state  = 7;
+
+      // state 6 is qt                                                                                                                                                                                      
+      else if ( state == 6 && s[charpos] == 'a' || s[charpos] == 'i' || s[charpos] == 'u' || s[charpos] == 'e' || s[charpos] == 'o' || s[charpos] == 'E' || s[charpos] == 'I')
+        state = 1;
+      else if ( state == 2 && s[charpos] == 's')
+        state = 7;
+
+      // state 7 is qsa                                                                                                                                                                                     
+      else if ( state == 7 && s[charpos] == 'a' || s[charpos] == 'i' || s[charpos] == 'u' || s[charpos] == 'e' || s[charpos] == 'o' || s[charpos] == 'E' || s[charpos] == 'I')
+        state = 1;
+
+      else
+        return (false);
+      charpos++;
+    }//end of while    
+
+
+  // where did I end up????                                                                                                                                                                                 
+  if (state == 0 || state == 1 || stare ==2)
+    return(true);  // end in a final state                                                                                                                                                                  
+  else return(false);	
+  
 }
 
 // PERIOD DFA 
