@@ -1,6 +1,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 /* Look for all **'s and complete them */
@@ -11,40 +13,149 @@ using namespace std;
 
 // --------- Two DFAs ---------------------------------
 
+enum State
+{
+    q0,
+    q0q1,
+    q0qy,
+    qy,
+    qs,
+    qc,
+    qt,
+    qsa
+};
+
+bool contains(vector<char> v, char c)
+{
+    return std::find(v.begin(), v.end(), c) != v.end();
+}
+
 // WORD DFA
-// Done by: **
+// Done by: Ased Adus, Mical Johnson, Blake Walters  Group: 16
 // RE:   **
 bool word(string s)
 {
 
-    int state = 0;
+    State state = q0;
     int charpos = 0;
-    // replace the following todo the word dfa  **
+
     while (s[charpos] != '\0')
     {
-        if (state == 0 && s[charpos] == 'a')
-            state = 1;
-        else if (state == 1 && s[charpos] == 'b')
-            state = 2;
-        else if (state == 2 && s[charpos] == 'b')
-            state = 2;
-        else
-            return (false);
+        char c = s[charpos]; // easier to type
+
+        bool isVowel = contains({'a','e','i','o','u', 'I', 'E'}, c);
+
+        // cout << "State: " << state << ", char: " << c << endl;
+
+        switch (state)
+        {
+
+        case (q0):
+            if (isVowel)
+                state = q0q1;
+            else if (contains({'b','g','h','k','m','n','p','r'}, c))
+                state = qy;
+            else if (c == 't')
+                state = qt;
+            else if (c == 's')
+                state = qs;
+            else if (c == 'c')
+                state = qc;
+            else if (contains({'d', 'w', 'z', 'y','j'}, c))
+                state = qsa;
+            else 
+            { cout << "Fail in q0 with character: " << c << endl; return false; }
+            break;
+
+        case (q0q1):
+            if (isVowel)
+                state = q0q1;
+            else if (contains({'b','g','h','k','m','p','r'}, c))
+                state = qy;
+            else if (c == 'n')
+                state = q0qy;
+            else if (c == 't')
+                state = qt;
+            else if (c == 's')
+                state= qs;
+            else if (c == 'c')
+                state = qc;
+            else if (contains({'d', 'w', 'z', 'y','j'}, c))
+                state = qsa;
+            else 
+            { cout << "Fail in q0q1 with character: " << c << endl; return false; }
+            break;
+
+        case (q0qy):
+            if (isVowel)
+                state = q0q1;
+            else if (contains({'b','g','h','k','m','n','p','r'}, c))
+                state = qy;
+            else if (c == 't')
+                state = qt;
+            else if (c == 's')
+                state = qs;
+            else if (c == 'c')
+                state = qc;
+            else if (contains({'d', 'w', 'z', 'y','j'}, c))
+                state = qsa;
+            else 
+            { cout << "Fail in q0qy with character: " << c << endl; return false; }
+            break;
+
+        case (qy):
+            if (isVowel)
+                state = q0q1;
+            else if (c == 'y')
+                state = qsa;
+            else 
+            { cout << "Fail in qy with character: " << c << endl; return false; }
+            break;
+
+        case (qs):
+            if (isVowel)
+                state = q0q1;
+            else if (c == 'h')
+                state = qsa;
+            else 
+            { cout << "Fail in qs with character: " << c << endl; return false; }
+            break;
+
+        case (qc):
+            if (c == 'h')
+                state = qsa;
+            else 
+            { cout << "Fail in qc with character: " << c << endl; return false; }
+            break;
+
+        case (qt):
+            if (isVowel)
+                state = q0q1;
+            else if (c == 's')
+                state = qsa;
+            else 
+            { cout << "Fail in qt with character: " << c << endl; return false; }
+            break;
+
+        case (qsa):
+            if (isVowel)
+                state = q0q1;
+            else 
+            { cout << "Fail in qsa with character: " << c << endl; return false; }
+            break;
+        }
         charpos++;
     } // end of while
 
     // where did I end up????
-    if (state == 2)
-        return (true); // end in a final state
-    else
-        return (false);
+    return state == q0 || state == q0q1 || state == q0qy;
 }
 
 // PERIOD DFA
 // Done by: ** Micah
 bool period(string s)
 { // complete this **
-    return s==".";
+    return s == ".";
 }
 
 // ------ Three  Tables -------------------------------------
@@ -90,8 +201,20 @@ int scanner(tokentype &tt, string &w)
 
     4. Return the token type & string  (pass by reference)
     */
-
+   return 0;
 } // the end of scanner
+
+void wordTest()
+{
+    cout << word("soshite") << endl;
+    cout << word("watashi") << endl;
+    cout << word("wa") << endl;
+    cout << word("rika") << endl;
+    cout << word("rika") << endl;
+    cout << word("rika") << endl;
+    cout << word("YarI") << endl;
+    cout << word("boiiiiilmaokkkk") << endl;
+}
 
 // The temporary test driver to just call the scanner repeatedly
 // This will go away after this assignment
@@ -99,6 +222,7 @@ int scanner(tokentype &tt, string &w)
 // Done by:  Louis
 int main()
 {
+
     tokentype thetype;
     string theword;
     string filename;
