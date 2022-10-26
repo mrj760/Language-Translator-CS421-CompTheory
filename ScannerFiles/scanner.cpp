@@ -97,7 +97,7 @@ bool word (string s)
 
 
   // where did I end up????                                                                                                                                                                                 
-  if (state == 0 || state == 1 || stare ==2)
+  if (state == 0 || state == 1 || state ==2)
     return(true);  // end in a final state                                                                                                                                                                  
   else return(false);	
   
