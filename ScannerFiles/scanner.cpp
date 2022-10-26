@@ -64,7 +64,7 @@ bool word(string s)
             else if (contains({'d', 'w', 'z', 'y','j'}, c))
                 state = qsa;
             else 
-            { cout << "Fail in q0 with character: " << c << endl; return false; }
+            { /* cout << "Fail in q0 with character: " << c << endl; */ return false; }
             break;
 
         case (q0q1):
@@ -83,7 +83,7 @@ bool word(string s)
             else if (contains({'d', 'w', 'z', 'y','j'}, c))
                 state = qsa;
             else 
-            { cout << "Fail in q0q1 with character: " << c << endl; return false; }
+            { /* cout << "Fail in q0q1 with character: " << c << endl; */ return false; }
             break;
 
         case (q0qy):
@@ -100,7 +100,7 @@ bool word(string s)
             else if (contains({'d', 'w', 'z', 'y','j'}, c))
                 state = qsa;
             else 
-            { cout << "Fail in q0qy with character: " << c << endl; return false; }
+            { /* cout << "Fail in q0qy with character: " << c << endl; */ return false; }
             break;
 
         case (qy):
@@ -109,7 +109,7 @@ bool word(string s)
             else if (c == 'y')
                 state = qsa;
             else 
-            { cout << "Fail in qy with character: " << c << endl; return false; }
+            { /* cout << "Fail in qy with character: " << c << endl; */ return false; }
             break;
 
         case (qs):
@@ -118,14 +118,14 @@ bool word(string s)
             else if (c == 'h')
                 state = qsa;
             else 
-            { cout << "Fail in qs with character: " << c << endl; return false; }
+            { /* cout << "Fail in qs with character: " << c << endl; */ return false; }
             break;
 
         case (qc):
             if (c == 'h')
                 state = qsa;
             else 
-            { cout << "Fail in qc with character: " << c << endl; return false; }
+            { /* cout << "Fail in qc with character: " << c << endl; */ return false; }
             break;
 
         case (qt):
@@ -134,14 +134,14 @@ bool word(string s)
             else if (c == 's')
                 state = qsa;
             else 
-            { cout << "Fail in qt with character: " << c << endl; return false; }
+            { /* cout << "Fail in qt with character: " << c << endl; */ return false; }
             break;
 
         case (qsa):
             if (isVowel)
                 state = q0q1;
             else 
-            { cout << "Fail in qsa with character: " << c << endl; return false; }
+            { /* cout << "Fail in qsa with character: " << c << endl; */ return false; }
             break;
         }
         charpos++;
