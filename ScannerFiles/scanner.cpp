@@ -31,7 +31,7 @@ bool contains(vector<char> v, char c)
 }
 
 // WORD DFA
-// Done by: Ased Adus, Mical Johnson, Blake Walters  Group: 16
+// Done by: Ased Adus, Micah Johnson
 // RE:   **
 bool word(string s)
 {
@@ -165,7 +165,11 @@ bool period(string s)
 // ** Update the tokentype to be WORD1, WORD2, PERIOD, ERROR, EOFM, etc.
 enum tokentype
 {
+    WORD1,
+    WORD2,
+    PERIOD,
     ERROR,
+    EOFM
 };
 
 // ** For the display names of tokens - must be in the same order as the tokentype.
@@ -210,8 +214,8 @@ void wordTest()
     cout << word("watashi") << endl;
     cout << word("wa") << endl;
     cout << word("rika") << endl;
-    cout << word("rika") << endl;
-    cout << word("rika") << endl;
+    cout << word("riKa") << endl;
+    cout << word("rIka") << endl;
     cout << word("YarI") << endl;
     cout << word("boiiiiilmaokkkk") << endl;
 }
