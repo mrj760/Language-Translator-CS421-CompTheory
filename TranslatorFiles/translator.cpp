@@ -1,6 +1,11 @@
+#ifndef TRANSLATOR
+#define TRANSLATOR
+
 #include<iostream>
 #include<fstream>
 #include<string>
+#include "ParserFiles/parser.cpp"
+
 using namespace std;
 
 /* INSTRUCTION:  copy your parser.cpp here
@@ -66,3 +71,4 @@ int main()
 //** syntax error EC requires producing errors.txt of error messages
 //** tracing On/Off EC requires sending a flag to trace message output functions
 
+#endif

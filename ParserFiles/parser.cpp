@@ -1,6 +1,11 @@
+#ifndef PARSER
+#define PARSER
+
 #include<iostream>
 #include<fstream>
 #include<string>
+#include "ScannerFiles/scanner.cpp"
+
 using namespace std;
 
 /* INSTRUCTION:  Complete all ** parts.
@@ -33,11 +38,11 @@ void syntaxerror2(  ) {    }
 
 // Purpose: **
 // Done by: **
-token_type next_token(){}
+tokentype next_token(){}
 
 // Purpose: **
 // Done by: **
-boolean match(tokentype expected) {}
+bool match(tokentype expected) {}
 
 // ----- RDP functions - one per non-term -------------------
 
@@ -67,3 +72,5 @@ int main()
 //** require no other input files!
 //** syntax error EC requires producing errors.txt of error messages
 //** tracing On/Off EC requires sending a flag to trace message output functions
+
+#endif

@@ -1,8 +1,12 @@
+#ifndef SCANNER
+#define SCANNER
+
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <vector>
+
 using namespace std;
 
 /* Look for all **'s and complete them */
@@ -191,6 +195,9 @@ int scanner(tokentype &tt, string &w)
 
     // ** Grab the next word from the file via fin
     // 1. If it is eofm, return right now.
+    fin >> w;
+    if (w == "eofm")
+        return 0;
 
     /*  **
     2. Call the token functions (word and period)
@@ -252,3 +259,5 @@ int main()
     fin.close();
 
 } // end
+
+#endif
