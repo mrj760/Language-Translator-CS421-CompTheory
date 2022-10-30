@@ -2,8 +2,8 @@ Use this list to create the reserved words list in your scanner.
 
  word:	            				token type:
   
-  masu						VERB
-  masen						VERBNEG
+  masu						        VERB
+  masen						        VERBNEG
   mashita                	 		VERBPAST
   masendeshita            			VERBPASTNEG
   desu                    			IS 
@@ -12,15 +12,15 @@ Use this list to create the reserved words list in your scanner.
   wa                       			SUBJECT
   ni                       			DESTINATION
 
-  watashi					PRONOUN
-  anata						PRONOUN
-  kare						PRONOUN   
-  kanojo					PRONOUN  
-  sore      					PRONOUN
-  mata                                     	CONNECTOR
-  soshite                          		CONNECTOR
-  shikashi					CONNECTOR
-  dakara					CONNECTOR
+  watashi					        PRONOUN
+  anata						        PRONOUN
+  kare						        PRONOUN   
+  kanojo					        PRONOUN  
+  sore      					    PRONOUN
+  mata                              CONNECTOR
+  soshite                          	CONNECTOR
+  shikashi					        CONNECTOR
+  dakara					        CONNECTOR
 
 This one is special.  No need to go through DFAs.
 			
