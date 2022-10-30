@@ -16,164 +16,163 @@ using namespace std;
 //=====================================================
 
 // --------- Two DFAs ---------------------------------
-
-enum State
+enum State                          // create an enum for every state
 {
-    q0,
-    q0q1,
-    q0qy,
-    qy,
-    qs,
-    qc,
-    qt,
-    qsa
+    q0,                             // starting state/ accepting state
+    q0q1,                           // final/accepting state
+    q0qy,                           // final/accepting state
+    qy,                             // transition state
+    qs,                             // transition state
+    qc,                             // transition state 
+    qt,                             // transition state
+    qsa                             // transition state
 };
 
-bool contains(vector<char> v, char c)
+//This function will return true if char c is found in the vector v
+bool contains(vector<char> v, char c)           
 {
-    return std::find(v.begin(), v.end(), c) != v.end();
+    return std::find(v.begin(), v.end(), c) != v.end();   // return true if char is found 
 }
 
 // WORD DFA
 // Done by: Ased, Micah
 // RE:   **
-bool word(string s)
+bool word(string s)                                       // returns true if string follows the gamer rule
 {
 
-    State state = q0;
-    int charpos = 0;
+    State state = q0;                                     // starting state
+    int charpos = 0;                                      // initial char
 
-    while (s[charpos] != '\0')
+    while (s[charpos] != '\0')                              // while loop will end when we get to the end of string
     {
-        char c = s[charpos]; // easier to type
+        char c = s[charpos]; // easier to type              // get char at postition charpos
 
-        bool isVowel = contains({'a', 'e', 'i', 'o', 'u', 'I', 'E'}, c);
+        bool isVowel = contains({'a', 'e', 'i', 'o', 'u', 'I', 'E'}, c);    // this bool variable says true if char c contains any of the vowle listed in the gramer rule
 
-        // cout << "State: " << state << ", char: " << c << endl;
+        // cout << "State: " << state << ", char: " << c << endl;           
 
-        switch (state)
+        switch (state)                                      // switch statment to track if a string is following the grammar rule
         {
-
-        case (q0):
-            if (isVowel)
+        case (q0):                                          // starting state (q0) CASE #1 
+            if (isVowel)                                    // if the char is a vowel go to state q0q1
                 state = q0q1;
-            else if (contains({'b', 'g', 'h', 'k', 'm', 'n', 'p', 'r'}, c))
+            else if (contains({'b', 'g', 'h', 'k', 'm', 'n', 'p', 'r'}, c)) // if char contains one of those characters go to state qy
                 state = qy;
-            else if (c == 't')
+            else if (c == 't')                              // if char is 't' go to state qt
                 state = qt;
-            else if (c == 's')
+            else if (c == 's')                              // if char is 's' go to state qs
                 state = qs;
-            else if (c == 'c')
+            else if (c == 'c')                              // if char is 'c' go to state qc
                 state = qc;
-            else if (contains({'d', 'w', 'z', 'y', 'j'}, c))
+            else if (contains({'d', 'w', 'z', 'y', 'j'}, c))// if char contains one of those characters go to state qsa
                 state = qsa;
-            else
+            else                                            // if char is not one of the character listed in the above case, return false. 
             { /* cout << "Fail in q0 with character: " << c << endl; */
                 return false;
             }
             break;
 
-        case (q0q1):
+        case (q0q1):                                        //  state (q0q1) CASE #2 
             if (isVowel)
                 state = q0q1;
-            else if (contains({'b', 'g', 'h', 'k', 'm', 'p', 'r'}, c))
+            else if (contains({'b', 'g', 'h', 'k', 'm', 'p', 'r'}, c))      // if char contains one of those characters go to state qy
                 state = qy;
-            else if (c == 'n')
+            else if (c == 'n')                              // if char is 'n' go to state q0qy
                 state = q0qy;
-            else if (c == 't')
+            else if (c == 't')                              // if char is 't' go to state qt
                 state = qt;
-            else if (c == 's')
+            else if (c == 's')                              // if char is 's' go to state qs
                 state = qs;
-            else if (c == 'c')
+            else if (c == 'c')                              // if char is 'c' go to state qc
                 state = qc;
-            else if (contains({'d', 'w', 'z', 'y', 'j'}, c))
+            else if (contains({'d', 'w', 'z', 'y', 'j'}, c)) // if char contains one of those characters go to state qsa
                 state = qsa;
-            else
+            else                                            // if char is not one of the character listed in the above case, return false. string does not follow the grammar rules  
             { /* cout << "Fail in q0q1 with character: " << c << endl; */
                 return false;
             }
             break;
 
-        case (q0qy):
-            if (isVowel)
+        case (q0qy):                                        ////  state (q0qy) CASE #3
+            if (isVowel)                                    // if the char is a vowel go to state q0q1                                    
                 state = q0q1;
-            else if (contains({'b', 'g', 'h', 'k', 'm', 'n', 'p', 'r'}, c))
+            else if (contains({'b', 'g', 'h', 'k', 'm', 'n', 'p', 'r'}, c))// if char contains one of those characters go to state qy
                 state = qy;
-            else if (c == 't')
+            else if (c == 't')                                // if char is 't' go to state qt
                 state = qt;
-            else if (c == 's')
+            else if (c == 's')                               // if char is 's' go to state qs
                 state = qs;
-            else if (c == 'c')
+            else if (c == 'c')                              // if char is 'c' go to state qc
                 state = qc;
-            else if (contains({'d', 'w', 'z', 'y', 'j'}, c))
+            else if (contains({'d', 'w', 'z', 'y', 'j'}, c)))// if char contains one of those characters go to state qsa
                 state = qsa;
-            else
+            else             // if char is not one of the character listed in the above cases, return false. string does not follow the grammar rules  
             { /* cout << "Fail in q0qy with character: " << c << endl; */
                 return false;
             }
             break;
 
-        case (qy):
-            if (isVowel)
+        case (qy):                                        //  state (q0qy) CASE #4
+            if (isVowel)                                  // if the char is a vowel go to state q0q1   
                 state = q0q1;
-            else if (c == 'y')
+            else if (c == 'y')                            // if char is 'y' go to state qsa
                 state = qsa;
-            else
+            else             // if char is not one of the character listed in the above cases, return false. string does not follow the grammar rules  
             { /* cout << "Fail in qy with character: " << c << endl; */
                 return false;
             }
             break;
 
-        case (qs):
-            if (isVowel)
+        case (qs):                                        //  state (q0qy) CASE #5
+            if (isVowel)                                  // if the char is a vowel go to state q0q1  
                 state = q0q1;
-            else if (c == 'h')
+            else if (c == 'h')                              // if char is 'h' go to state qsa
                 state = qsa;
-            else
+            else              // if char is not one of the character listed in the above cases, return false. string does not follow the grammar rules   
             { /* cout << "Fail in qs with character: " << c << endl; */
                 return false;
             }
             break;
 
-        case (qc):
-            if (c == 'h')
+        case (qc):                                      //  state (q0qy) CASE #6
+            if (c == 'h')                               // if char is 'h' go to state qsa
                 state = qsa;
-            else
+            else              // if char is not one of the character listed in the above cases, return false. string does not follow the grammar rules   
             { /* cout << "Fail in qc with character: " << c << endl; */
                 return false;
             }
             break;
 
-        case (qt):
-            if (isVowel)
+        case (qt):                                        //  state (q0qy) CASE #7
+            if (isVowel)                                  // if the char is a vowel go to state q0q1  
                 state = q0q1;
-            else if (c == 's')
+            else if (c == 's')                               // if char is 's' go to state qsa
                 state = qsa;
-            else
+            else              // if char is not one of the character listed in the above cases, return false. string does not follow the grammar rules   
             { /* cout << "Fail in qt with character: " << c << endl; */
                 return false;
             }
             break;
 
-        case (qsa):
-            if (isVowel)
+        case (qsa):                                        //  state (q0qy) CASE #8
+            if (isVowel)                                   // if the char is a vowel go to state q0q1  
                 state = q0q1;
-            else
+            else              // if char is not one of the character listed in the above cases, return false. string does not follow the grammar rules    
             { /* cout << "Fail in qsa with character: " << c << endl; */
                 return false;
             }
             break;
         }
-        charpos++;
+        charpos++;                                         // increment the character position 
     } // end of while
 
-    // where did I end up????
+    // where did I end up????                              // return true if we end up in one of the accepted state which are q0, q0q1, and q0qy
     return state == q0 || state == q0q1 || state == q0qy;
 }
 
 // PERIOD DFA
 // Done by: ** Micah
-bool period(string s)
+bool period(string s)                                       // return true if the string contain only period
 { // complete this **
     return s == ".";
 }
@@ -181,9 +180,8 @@ bool period(string s)
 // ------ Three  Tables -------------------------------------
 
 // TABLES Done by: ** Micah
-
 // ** Update the tokentype to be WORD1, WORD2, PERIOD, ERROR, EOFM, etc.
-enum tokentype
+enum tokentype                                              // this enum contains all of the tokentype that will be labeled by the scanner
 {
     WORD1,
     WORD2,
@@ -224,9 +222,9 @@ string tokenName[30] = {"WORD1", "WORD2", "PERIOD", "ERROR", "EOFM", "PRONOUN", 
 
 vector<vector<string>> reservedwords;
 
-void initreservedwords()
+void initreservedwords() // this function will organize the the reserved words with their tokentype in double vector
 {
-    for (int i = WORD1; i <= CONNECTOR; ++i)
+    for (int i = WORD1; i <= CONNECTOR; ++i)      
     {
         reservedwords.push_back(vector<string>());
     }
@@ -260,13 +258,11 @@ ifstream fin; // global stream for reading from the input file
 // ** Done by: Micah
 tokentype scanner(string &w)
 {
-    if (reservedwords.empty())
+    if (reservedwords.empty())          //if the reservedword is empty call initreservedwords function to store the resurved words in to double vector 
         initreservedwords();
 
-    // ** Grab the next word from the file via fin
-    // 1. If it is eofm, return right now.
-    fin >> w;
-    if (w == "eofm")
+    fin >> w;                                // ** Grab the next word from the file via fin
+    if (w == "eofm")                         // 1. If it is eofm, return right now.
         return EOFM;
 
     /*  **
