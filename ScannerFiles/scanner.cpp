@@ -208,8 +208,15 @@ enum tokentype
 };
 
 // ** For the display names of tokens - must be in the same order as the tokentype.
-string tokenName[30] = {"WORD1",   "WORD2", "PERIOD", "ERROR",  "EOFM",        "PRONOUN",  "SUBJECT",    "VERB",
-                        "VERBNEG", "IS",    "WAS",    "OBJECT", "DESTINATION", "VERBPAST", "VERBPASTNEG"};
+string tokenName[30] = {"WORD1", "WORD2", "PERIOD", "ERROR", "EOFM", "PRONOUN", "SUBJECT", "VERB", "VERBNEG", "IS",
+                        "WAS", "OBJECT", "DESTINATION", "VERBPAST", "VERBPASTNEG",
+
+                        /* Add new type ABOVE here.
+                        Do not add anything below here.
+                        Otherwise the code will break.
+                        Do not break the code. */
+                        "CONNECTOR"
+                        /* Do not. Do not. Do not. */};
 
 // ** Need the reservedwords table to be set up here.
 // ** Do not require any file input for this. Hard code the table.
