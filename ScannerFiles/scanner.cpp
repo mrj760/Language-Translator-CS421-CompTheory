@@ -35,7 +35,7 @@ bool contains(vector<char> v, char c)
 }
 
 // WORD DFA
-// Done by: Ased Adus, Micah Johnson
+// Done by: Ased, Micah
 // RE:   **
 bool word(string s)
 {
@@ -250,7 +250,7 @@ ifstream fin; // global stream for reading from the input file
 
 // Scanner processes only one word each time it is called
 // Gives back the token type and the word itself
-// ** Done by:
+// ** Done by: Micah
 tokentype scanner(string &w)
 {
     if (reservedwords.empty())
@@ -301,7 +301,7 @@ void wordTest()
 // The temporary test driver to just call the scanner repeatedly
 // This will go away after this assignment
 // DO NOT CHANGE THIS!!!!!!
-// Done by:  Louis
+// Done by:  Louis, Micah
 int main()
 {
 
@@ -322,8 +322,6 @@ int main()
         if (theword == "eofm")
             break; // stop now
 
-        // cout << "Type is:" << tokenName[thetype] << endl;
-        // cout << "Word is:" << theword << endl;
         cout << "\n\"" << theword << "\" is token type " << tokenName[thetype] << endl;
     }
 
