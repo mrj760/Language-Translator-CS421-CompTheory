@@ -270,22 +270,22 @@ tokentype scanner(string &w)
     one after another (if-then-else).
     Generate a lexical error message if both DFAs failed.
     Let the tokentype be ERROR in that case. */
-    if (period(w))
+    if (period(w))                           // if string is period, return the tokentype as PERIOD
         return PERIOD;
-    if (!word(w))
+    if (!word(w))                            // if strins is not word defined in the grammar, return tokentype ERROR
         return ERROR;
 
     /* 3. If it was a word,
     check against the reservedwords list.
     If not reserved, tokentype is WORD1 or WORD2
     decided based on the last character. */
-    for (int i = WORD1; i < CONNECTOR; ++i)
+    for (int i = WORD1; i < CONNECTOR; ++i) //for loop that will look for string in the reservedwords vector 
     {
-        if (std::find(reservedwords[i].begin(), reservedwords[i].end(), w) != reservedwords[i].end())
+        if (std::find(reservedwords[i].begin(), reservedwords[i].end(), w) != reservedwords[i].end()) // if the word is found in the reservedwords vector, return the tokentype of the word found in the reservedwords
             return static_cast<tokentype>(i);
     }
     /* 4. Return the token type & string  (pass by reference) */
-    char last = w[w.length() - 1];
+    char last = w[w.length() - 1];              // if string is not in the reservedwords, not a period, and is valid string defined in the grammar rule, check the last character of string and returned tokentype WORD1 or WORD2
     return (last == 'I' || last == 'E') ? WORD2 : WORD1;
 } // the end of scanner
 
