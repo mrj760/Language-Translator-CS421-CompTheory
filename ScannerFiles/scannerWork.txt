@@ -13,7 +13,7 @@ o	Member B tasks(DFA, tables, scanner)- who: Blake Walters
 o	Member C tasks(word, period)- who: Ased Adus and Micah 
 
 2.     Who came to the meeting to test everything together? 
-       we collaborated in this project, i(Ased Adus) tasked to complete member C tasks, I got help by Micha making my code neater and easily understandable.
+       we collaborated in this project, i(Ased Adus) was tasked to complete member C tasks, I got help by Micha making my code neater and easily understandable.
 
 3.     You have included all the required comments? (RE and Done By): yes
 
