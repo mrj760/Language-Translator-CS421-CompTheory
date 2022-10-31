@@ -7,9 +7,9 @@ Group#:
 Must have divided the work as specified by the assignment
 sheet. If the member did not fully contribute to the assigned part, 
 do not list his/her name!!!!!
-o	Member A tasks(DFA, tables, scanner)- who: 
-o	Member B tasks(DFA, tables, scanner)- who: 
-o	Member C tasks(word, period)- who: 
+o	Member A tasks(DFA, tables, scanner)- who: Michah and Blake Walters
+o	Member B tasks(DFA, tables, scanner)- who: Michah 
+o	Member C tasks(word, period)- who: Ased and Micah
 
 2.     Who came to the meeting to test everything together? 
 
