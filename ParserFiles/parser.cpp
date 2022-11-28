@@ -253,29 +253,29 @@ int scanner(tokentype& TK, string& w)
           TK = VERBPAST;
         else if (reservedwords[i][1] == "VERBPASTNEG")   // if its VERBPASTNEG
           TK = VERBPASTNEG;
-        else if (reservedwords[i][1] == "IS")  
+        else if (reservedwords[i][1] == "IS")     // if its IS
           TK = IS;
-        else if (reservedwords[i][1] == "WAS")
+        else if (reservedwords[i][1] == "WAS")   // if its WAS
           TK = WAS;
-        else if (reservedwords[i][1] == "OBJECT")
+        else if (reservedwords[i][1] == "OBJECT")       // if its OBJECT
           TK = OBJECT;
-        else if (reservedwords[i][1] == "SUBJECT")
+        else if (reservedwords[i][1] == "SUBJECT")       // if its SUBJECT
           TK = SUBJECT;
-        else if (reservedwords[i][1] == "DESTINATION")
+        else if (reservedwords[i][1] == "DESTINATION")	       // if its DESTINATION
           TK = DESTINATION;
-        else if (reservedwords[i][1] == "PRONOUN")
+        else if (reservedwords[i][1] == "PRONOUN")                // if its PRONOUN
           TK = PRONOUN;
-        else if (reservedwords[i][1] == "CONNECTOR")
+        else if (reservedwords[i][1] == "CONNECTOR")          // if its CONNECTOR
           TK = CONNECTOR;
-        else if (reservedwords[i][1] == "EOFM")
+        else if (reservedwords[i][1] == "EOFM")               // if its EOFM
           TK = EOFM;
-        isreserved = true;
+        isreserved = true;                       // SET isreserved true for the next if statmes
         break;
       }
     }
     if (!isreserved){                       // if the string is not in the reservedwords, check the ending of the string to see if the tokentype is WORD1 or WORD2
        if (w[w.length() - 1] == 'I' || w[w.length() - 1] == 'E')
-          TK = WORD2;
+          TK = WORD2;             
        else
           TK = WORD1;
     }
