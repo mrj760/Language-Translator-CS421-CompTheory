@@ -225,7 +225,7 @@ string reservedwords[20][2] = {             //store the reservedwords in 2D arra
 ifstream fin;  // global stream for reading from the input file   
 
 // this scanner function will read one word at a time and return the tokentype and the string using pass by reference
-int scanner(tokentype& a, string& w)
+int scanner(tokentype& TK, string& w)
 {
 
   // ** Grab the next word from the file via fin                                                                                                                
@@ -246,52 +246,51 @@ int scanner(tokentype& a, string& w)
     for (int i = 0; i < 20; i++) {
       if (w == reservedwords[i][0]) {// w was found to be reserved, assign the correct token type                                                               
         if (reservedwords[i][1] == "VERB")        //if its VERB
-          a = VERB;
+          TK = VERB;
         else if (reservedwords[i][1] == "VERBNEG")  // if its VERBNEG
-          a = VERBNEG;
+          TK = VERBNEG;
         else if (reservedwords[i][1] == "VERBPAST")   // if its VERBPAST
-          a = VERBPAST;
+          TK = VERBPAST;
         else if (reservedwords[i][1] == "VERBPASTNEG")   // if its VERBPASTNEG
-          a = VERBPASTNEG;
+          TK = VERBPASTNEG;
         else if (reservedwords[i][1] == "IS")  
-          a = IS;
+          TK = IS;
         else if (reservedwords[i][1] == "WAS")
-          a = WAS;
+          TK = WAS;
         else if (reservedwords[i][1] == "OBJECT")
-          a = OBJECT;
+          TK = OBJECT;
         else if (reservedwords[i][1] == "SUBJECT")
-          a = SUBJECT;
+          TK = SUBJECT;
         else if (reservedwords[i][1] == "DESTINATION")
-          a = DESTINATION;
+          TK = DESTINATION;
         else if (reservedwords[i][1] == "PRONOUN")
-          a = PRONOUN;
+          TK = PRONOUN;
         else if (reservedwords[i][1] == "CONNECTOR")
-          a = CONNECTOR;
+          TK = CONNECTOR;
         else if (reservedwords[i][1] == "EOFM")
-          a = EOFM;
+          TK = EOFM;
         isreserved = true;
         break;
       }
     }
     if (!isreserved){                       // if the string is not in the reservedwords, check the ending of the string to see if the tokentype is WORD1 or WORD2
        if (w[w.length() - 1] == 'I' || w[w.length() - 1] == 'E')
-          a = WORD2;
+          TK = WORD2;
        else
-          a = WORD1;
+          TK = WORD1;
     }
   }
   else if( period(w) ){                     // if the string is a period
-    a = PERIOD;
+    TK = PERIOD;
   }
   else if (w == "eofm") {                   // if the string is 'eofm
-    a = EOFM;
+    TK = EOFM;
   }
   else {
     // Generated a lexical error                                                                                                                                
     cout << "Lexical error: " << w << " is not a valid token." << endl;
-    a = ERROR;
+    TK = ERROR;
   }
-
   return 0;
 }//the end of scanner     
 
