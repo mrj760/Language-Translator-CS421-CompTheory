@@ -504,13 +504,13 @@ void after_subject() {
 // Grammar: <s>::= [CONNECTOR] <noun> SUBJECT <after subject>
 // Done by: Ased Adus
 void s(){
-  cout << "Processing <s>" << endl;
-  switch (next_token()){
-  case CONNECTOR:
-    match(CONNECTOR);
-    noun();
-    match(SUBJECT);
-    after_subject();
+  cout << "Processing <s>" << endl;    
+  switch (next_token()){         // the next token
+  case CONNECTOR:                // if the next token is CONNECTOR
+    match(CONNECTOR);            // match
+    noun();                      // call <noun> 
+    match(SUBJECT);              // match
+    after_subject();             // call <after subject> 
     break;
   default:
     noun();
@@ -524,29 +524,22 @@ void s(){
 // Done by: Ased Adus
 void story(){
   cout << "processing <story>\n" << endl;
-  s();
-  while(true)
+  s();                          // start with <s>
+  while(true)                   
     {
-      if (next_token() == EOFM) {
+      if (next_token() == EOFM) { //if the next token is EOFM end the parsing
 	cout << endl << "Successfully parsed <story>." << endl;
 	break;
       }
-      s();
+      s();                        // parse the next <s> if found
     }
 }
 
 
-
-
-
-
-
-string filename;
-
 //----------- Driver ---------------------------
 
 // The new test driver to start the parser
-// Done by:  **
+// Done by:  Ased Adus
 int main()
 {
   string filename;
