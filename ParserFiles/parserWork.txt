@@ -32,7 +32,7 @@ If the member did not fully contribute to the assigned part, do not list his/her
 4.  The parser produced correct output for
     all 6 test cases?
 
-5.  What extra credit feature did you include?       No extra credit fearure is included
+5.  What extra credit feature did you include?       No extra credit feature is included
     If it is error correction, did you make sure errors.txt
     got produced?
     [ You may still do EC later ]
