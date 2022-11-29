@@ -45,7 +45,6 @@ bool contains(vector<char> v, char c)
 // Done by: Ased, Micah                                                                                               
 // RE:   **                                                                                                           
 
-
 bool word(string s)                                       // returns true if string follows the gamer rule            
 {
   State state = q0;                                     // starting state                                             
@@ -54,10 +53,8 @@ bool word(string s)                                       // returns true if str
   while (s[charpos] != '\0')                              // while loop will end when we get to the end of string     
     {
       char c = s[charpos]; // easier to type              // get char at postition charpos                            
-      bool isVowel = contains({'a', 'e', 'i', 'o', 'u', 'I', 'E'}, c);    // this bool variable says true if char c contains any of the vowle listed in the gramer rule                                                                    
-
-      // cout << "State: " << state << ", char: " << c << endl;                                                       
-
+      bool isVowel = contains({'a', 'e', 'i', 'o', 'u', 'I', 'E'}, c);    // this bool variable says true if char c contains any of the vowle listed in the gramer rule                                                                                        
+	  
       switch (state)                                      // switch statment to track if a string is following the grammar rule                                                                                                            
         {
         case (q0):                                          // starting state (q0) CASE #1                            
@@ -306,7 +303,7 @@ tokentype saved_token;
 
 
 enum parser_function {STORY, S, AFTER_SUBJECT, AFTER_NOUN, AFTER_OBEJCT, VERB1, TENSE, NOUN, BE };
-string parserName[30] = { "story", "s", "after subject", "after noun", "after obejct", "verb", "tense", "noun", "be" };
+string parser_name[30] = { "story", "s", "after subject", "after noun", "after obejct", "verb", "tense", "noun", "be" };
 
 
 // ** Need syntaxerror1 and syntaxerror2 functions (each takes 2 args)                                                                                          
@@ -315,14 +312,14 @@ string parserName[30] = { "story", "s", "after subject", "after noun", "after ob
 // Type of error: error when match fails                                                                                                                        
 // Done by: Ased Adus                                                                                                                                           
 void syntaxerror1(tokentype TK){
-  cout << endl << "LEXICAL ERROR: unexpected " << saved_lexeme << "is not a valid token" << endl;
+  cout << endl << "SYNTAX ERROR: expected " << tokenName[TK} << "but found" << saved_lexeme << endl;
 }
 
 
 // Type of error: for switch default                                                                                                                            
 // Done by: Ased Adus                                                                                                                                           
 void syntaxerror2(parser_function x){
-  cout << endl << "SYNTAX ERROR: unexpected " << saved_lexeme << " found in " << parserName[x] << endl;
+  cout << endl << "SYNTAX ERROR: unexpected " << saved_lexeme << " found in " << parser_name[x] << endl;
   exit(1);
 }
 
