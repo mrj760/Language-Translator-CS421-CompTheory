@@ -1,4 +1,4 @@
 <s> ::= [CONNECTOR] <noun> SUBJECT <after subject>
 <after subject> ::= <verb> <tense> PERIOD | <noun> <after noun>
-<after noun> ::= <be> PERIOD | DESTINATION <verb> tense | OBJECT <after object>
+<after noun> ::= <be> PERIOD | DESTINATION <verb> <tense> | OBJECT <after object>
 <after object> ::= <verb> <tense> PERIOD  | <noun> DESTINATION <verb> <tense> PERIOD
