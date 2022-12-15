@@ -15,7 +15,7 @@ using namespace std;
 */
 
 //=================================================
-// File translator.cpp written by Group Number: **
+// File translator.cpp written by Group Number: 16
 //=================================================
 
 // ----- Additions to the parser.cpp ---------------------
