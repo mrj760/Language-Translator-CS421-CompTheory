@@ -247,7 +247,12 @@ int scanner(tokentype &a, string &w)
 {
 
     fin >> w; // ** Grab the next word from the file via fin
+<<<<<<< HEAD
 
+=======
+    cout << w;
+    
+>>>>>>> 5e9263d6d98134d72f9ec81a81c64045937fc8fd
     /*
       2. Call the token functions one after another (if-then-else)
       And generate a lexical error message if both DFAs failed.
