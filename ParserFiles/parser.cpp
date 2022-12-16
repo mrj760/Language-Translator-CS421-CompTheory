@@ -231,8 +231,8 @@ ifstream fin;  // global stream for reading from the input file
 int scanner(tokentype& a, string& w){
 
   fin >> w;       // ** Grab the next word from the file via fin                                                 
-  cout << w;
-  cout << "hello";
+//   cout << w;
+//   cout << "hello";
   /*                                                                                                         
     2. Call the token functions one after another (if-then-else)                                             
     And generate a lexical error message if both DFAs failed.                                                

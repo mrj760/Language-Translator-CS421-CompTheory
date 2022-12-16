@@ -104,7 +104,7 @@ bool word(string s)                                       // returns true if str
                 state = qs;
             else if (c == 'c')                              // if char is 'c' go to state qc
                 state = qc;
-            else if (contains({'d', 'w', 'z', 'y', 'j'}, c)))// if char contains one of those characters go to state qsa
+            else if (contains({'d', 'w', 'z', 'y', 'j'}, c))// if char contains one of those characters go to state qsa
                 state = qsa;
             else             // if char is not one of the character listed in the above cases, return false. string does not follow the grammar rules  
             { /* cout << "Fail in q0qy with character: " << c << endl; */
