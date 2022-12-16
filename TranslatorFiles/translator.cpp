@@ -247,8 +247,7 @@ int scanner(tokentype &a, string &w)
 {
 
     fin >> w; // ** Grab the next word from the file via fin
-    cout << w;
-    cout << "hello";
+
     /*
       2. Call the token functions one after another (if-then-else)
       And generate a lexical error message if both DFAs failed.
@@ -518,6 +517,7 @@ void after_noun()
     case WAS:
         be();
         gen("DESCRIPTION");
+        gen("TENSE");
         match(PERIOD);
         break;
     case DESTINATION:
@@ -639,8 +639,12 @@ void getEword()
 
 // TODO
 void gen(string line_type)
-{
-    fout << line_type << ": " << saved_E_word << endl;
+{   
+    if(line_type == "TENSE") {
+        fout << line_type << ": " << tokenName[saved_token] << endl;
+    }
+
+    else fout << line_type << ": " << saved_E_word << endl;
 }
 
 /* INSTRUCTION:  copy your parser.cpp here
@@ -658,17 +662,17 @@ void gen(string line_type)
 // ** Declare Lexicon (i.e. dictionary) that will hold the content of lexicon.txt
 // Make sure it is easy and fast to look up the translation.
 // Do not change the format or content of lexicon.txt
-//  Done by: **
+//  Done by: Ased
 
 // ** Additions to parser.cpp here:
 //    getEword() - using the current saved_lexeme, look up the English word
 //                 in Lexicon if it is there -- save the result
 //                 in saved_E_word
-//  Done by: **
+//  Done by: Micah
 //    gen(line_type) - using the line type,
 //                     sends a line of an IR to translated.txt
 //                     (saved_E_word or saved_token is used)
-//  Done by: **
+//  Done by: Blake
 
 // ----- Changes to the parser.cpp content ---------------------
 
@@ -682,7 +686,7 @@ void gen(string line_type)
 // ---------------- Driver ---------------------------
 
 // The final test driver to start the translator
-// Done by:  **
+// Done by:  Ased
 int main()
 {
     //** opens the lexicon.txt file and reads it into Lexicon
