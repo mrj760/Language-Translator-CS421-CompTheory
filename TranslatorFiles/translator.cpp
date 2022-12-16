@@ -408,15 +408,19 @@ void tense()
     switch (next_token())
     { // switch for all four caces  default calles syntaxerror 2
     case VERBPAST:
+        saved_lexeme = "was";
         match(VERBPAST);
         break;
     case VERBPASTNEG:
+        saved_lexeme = "wasn't";
         match(VERBPASTNEG);
         break;
     case VERB:
+        saved_lexeme = "is";
         match(VERB);
         break;
     case VERBNEG:
+        saved_lexeme = "isn't";
         match(VERBNEG);
         break;
     default:
@@ -584,6 +588,7 @@ void s()
         break;
     default:
         noun();
+        getEword();
         match(SUBJECT);
         gen("ACTOR");
         after_subject();
