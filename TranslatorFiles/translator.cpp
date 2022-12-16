@@ -35,25 +35,8 @@ enum tokentype // this enum contains all of the tokentype that will be labeled b
     CONNECTOR
 };
 
-const unordered_map<tokentype, std::string> tokenNames = {
-    { WORD1, "WORD1" },
-    { WORD2, "WORD 2"},
-    { PERIOD, "PERIOD"},
-    {ERROR, "ERROR"},
-    {EOFM, "EOFM"},
-    {PRONOUN, "PRONOUN"},
-    {SUBJECT, "SUBJECT"},
-    {VERB, "VERB"},
-    {VERBNEG, "VERBNEG"},
-    {IS, "IS"},
-    {WAS, "WAS"},
-    {OBJECT, "OBJECT"},
-    {DESTINATION, "DESTINATION"},
-    {VERBPAST, "VERBPAST"},
-    {VERBPASTNEG, "VERBPASTNEG"},
-    {CONNECTOR, "CONNECTOR"},
-
-};
+string tokenName[30] = {"WORD1",   "WORD2", "PERIOD", "ERROR",  "EOFM",        "PRONOUN",  "SUBJECT",     "VERB",
+                        "VERBNEG", "IS",    "WAS",    "OBJECT", "DESTINATION", "VERBPAST", "VERBPASTNEG", "CONNECTOR"};
 
 // ----- Four Utility Functions and Globals -----------------------------------
 string saved_lexeme;
@@ -64,8 +47,6 @@ string saved_E_word;
 string filename, outputfile;
 
 
-string tokenName[30] = {"WORD1",   "WORD2", "PERIOD", "ERROR",  "EOFM",        "PRONOUN",  "SUBJECT",     "VERB",
-                        "VERBNEG", "IS",    "WAS",    "OBJECT", "DESTINATION", "VERBPAST", "VERBPASTNEG", "CONNECTOR"};
 
 string reservedwords[20][2] = { // two dimention array of reserved words
     "masu",     "VERB",        "masen",   "VERBNEG",   "mashita", "VERBPAST",  "masendeshita", "VERBPASTNEG",
@@ -639,8 +620,9 @@ void load_dictionary(map<string, string> &lexicon)
 
 void getEword()
 {
+
     if (lexicon.find(saved_lexeme) == lexicon.end())
-        return;
+        saved_E_word = saved_lexeme;
     else
         saved_E_word = lexicon.at(saved_lexeme);
 }
@@ -648,7 +630,7 @@ void getEword()
 // TODO
 void gen(string line_type)
 {
-    fout << tokenNames.at(saved_token) << ": " << saved_lexeme << endl;
+    fout << line_type << ": " << saved_E_word << endl;
 }
 
 /* INSTRUCTION:  copy your parser.cpp here
@@ -702,8 +684,9 @@ int main()
     cin >> filename;
     filename = "testfiles/" + filename;
     fin.open(filename.c_str());
-
     fout.open("translated.txt");
+
+    load_dictionary(lexicon);
 
     //** calls the <story> to start parsing
     story();

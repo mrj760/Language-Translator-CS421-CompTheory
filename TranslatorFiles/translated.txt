@@ -1,28 +1,28 @@
-SUBJECT: wa
-IS: desu
-SUBJECT: wa
-IS: desu
-SUBJECT: wa
-OBJECT: o
-WORD 2: tabE
-VERB: masu
-SUBJECT: wa
-OBJECT: o
-DESTINATION: ni
-WORD 2: agE
-VERBPAST: mashita
-CONNECTOR: shikashi
-SUBJECT: wa
-WORD 2: yorokobI
-VERBPASTNEG: masendeshita
-CONNECTOR: dakara
-SUBJECT: wa
-WAS: deshita
-CONNECTOR: soshite
-SUBJECT: wa
-DESTINATION: ni
-WORD 2: ikI
-VERBPAST: mashita
-SUBJECT: wa
-WORD 2: nakI
-VERBPAST: mashita
+ACTOR: 
+DESCRIPTION: rika
+ACTOR: rika
+DESCRIPTION: teacher
+ACTOR: teacher
+OBJECT: meal
+ACTION: eat
+TENSE: eat
+ACTOR: eat
+OBJECT: test
+TO: student
+ACTION: give
+TENSE: give
+CONNECTOR: However
+ACTOR: student
+ACTION: enjoy
+TENSE: enjoy
+CONNECTOR: Therefore
+ACTOR: I/me
+DESCRIPTION: sad
+CONNECTOR: Then
+ACTOR: rika
+TO: restroom
+ACTION: go
+TENSE: go
+ACTOR: go
+ACTION: cry
+TENSE: cry
