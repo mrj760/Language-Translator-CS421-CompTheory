@@ -485,6 +485,7 @@ void after_object()
         getEword();
         gen("ACTION");
         tense();
+        getEword();
         gen("TENSE");
         match(PERIOD);
         break;
@@ -493,6 +494,7 @@ void after_object()
         getEword();
         gen("ACTION");
         tense();
+        getEword();
         gen("TENSE");
         match(PERIOD);
         break;
@@ -521,6 +523,7 @@ void after_noun()
         getEword();
         gen("ACTION");
         tense();
+        getEword();
         gen("TENSE");
         match(PERIOD);
         break;
@@ -528,6 +531,7 @@ void after_noun()
         match(OBJECT);
         gen("OBJECT");
         after_object();
+        getEword();
         break;
     default:
         syntaxerror2(AFTER_NOUN);
@@ -546,6 +550,7 @@ void after_subject()
         getEword();
         gen("ACTION");
         tense();
+        getEword();
         gen("TENSE");
         match(PERIOD);
         break;
