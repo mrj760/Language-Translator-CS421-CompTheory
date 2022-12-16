@@ -6,6 +6,7 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<map>
 
 using namespace std;
 
@@ -181,7 +182,7 @@ bool period(string s)                                       // return true if th
   return s == ".";
 }
 
-enum tokentype                                              // this enum contains all of the tokentype that will be labeled by the scanner
+enum tokentype                                              // this enum contains all of the tokentype that will be labeled by the scanner and also the linetypes
   {
     WORD1,
     WORD2,
@@ -200,6 +201,9 @@ enum tokentype                                              // this enum contain
     VERBPASTNEG,
     CONNECTOR
   };
+
+
+
 
 string tokenName[30] = {"WORD1", "WORD2", "PERIOD", "ERROR", "EOFM", "PRONOUN", "SUBJECT", "VERB", "VERBNEG", "IS",
                         "WAS", "OBJECT", "DESTINATION", "VERBPAST", "VERBPASTNEG","CONNECTOR" };
@@ -307,6 +311,7 @@ int scanner(tokentype& a, string& w){
 string saved_lexeme;
 bool avalible_token = false;
 tokentype saved_token;
+string saved_E_word;
 
 
 enum parser_function {STORY, S, AFTER_SUBJECT, AFTER_NOUN, AFTER_OBEJCT, VERB1, TENSE, NOUN, BE };
@@ -440,14 +445,22 @@ void after_object() {
   switch (next_token()) {
   case WORD1: case PRONOUN:
     noun();
+    getEword();
     match(DESTINATION);
+    gen("TO");
     verb();
+    getEword();
+    gen("ACTION");
     tense();
+    gen("TENSE");
     match(PERIOD);
     break;
   case WORD2:
     verb();
+    getEword();
+    gen("ACTION");
     tense();
+    gen("TENSE");
     match(PERIOD);
     break;
   default:
@@ -462,16 +475,22 @@ void after_noun() {
   switch (next_token()) {
   case IS: case WAS:
     be();
+    gen("DESCRIPTION");
     match(PERIOD);
     break;
   case DESTINATION:
     match(DESTINATION);
+    gen("TO");
     verb();
+    getEword();
+    gen("ACTION");
     tense();
+    gen("TENSE");
     match(PERIOD);
     break;
   case OBJECT:
     match(OBJECT);
+    gen("OBJECT");
     after_object();
     break;
   default:
@@ -488,11 +507,15 @@ void after_subject() {
     {
     case WORD2:
       verb();
+      getEword();
+      gen("ACTION");
       tense();
+      gen("TENSE");
       match(PERIOD);
       break;
     case WORD1: case PRONOUN:
       noun();
+      getEword();
       after_noun();
       break;
     default:
@@ -508,13 +531,18 @@ void s(){
   switch (next_token()){
   case CONNECTOR:
     match(CONNECTOR);
+    getEword();
+    gen("CONNECTOR");
     noun();
+    getEword();
     match(SUBJECT);
+    gen("ACTOR");
     after_subject();
     break;
   default:
     noun();
     match(SUBJECT);
+    gen("ACTOR");
     after_subject();
     break;
   }
@@ -547,10 +575,31 @@ string filename;
 
 // The new test driver to start the parser
 // Done by:  Blake Walters
+void load_dictionary(map<string, string> &lexicon) {
+  ifstream fin ("lexicon.txt", ios::in);
+  string row, col;
+  while (fin >> row){
+    fin >> col;
+    lexicon[row] = col;
+  }
+}
+
+void getEword() {
+  if (lexicon.find(saved_lexeme) == lexicon.end()) return;
+  else saved_E_word = lexicon[saved_lexeme];
+
+}
+
+//TODO
+void gen(string line_type) {
+
+}
+map<string, string> lexicon;
+
 int main()
 {
   cout << "\tGROUP = 16    Ased, Michah, Blake" << endl; 
-
+  load_dictionary(lexicon);
   cout << "Enter the input file name: ";
   cin >> filename;
   filename = "testfiles/" + filename;
