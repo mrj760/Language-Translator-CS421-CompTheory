@@ -577,10 +577,10 @@ string filename;
 // Done by:  Blake Walters
 void load_dictionary(map<string, string> &lexicon) {
   ifstream fin ("lexicon.txt", ios::in);
-  string row, col;
-  while (fin >> row){
-    fin >> col;
-    lexicon[row] = col;
+  string japanese, english;
+  while (fin >> japanese){
+    fin >> english;
+    lexicon[japanese] = english;
   }
 }
 
