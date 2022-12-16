@@ -469,7 +469,7 @@ void noun()
 }
 
 // Done by: Blake Walters
-// Grammar: <after_object> ::= <noun> DESTINATION <verb> <tense> PERIOD | <verb> <tense> PERIOD
+// Grammar: <after_object> ::= <verb> #getEword# #gen(ACTION)# <tense> #gen(TENSE)# PERIOD  | <noun> #getEword# DESTINATION #gen(TO)# <verb> #getEword# #gen(ACTION)# <tense> #gen(TENSE)# PERIOD
 void after_object()
 {
     cout << "Processing <afterObject>" << endl;
@@ -504,7 +504,7 @@ void after_object()
 }
 
 // Done by: Blake Walters
-// Grammar: <after noun> ::= <be> PERIOD | DESTINATION <verb> <tense> PERIOD | OBJECT <after obejct>
+// Grammar: <after noun> ::= <be> #gen(DESCRIPTION)# #gen(TENSE)# PERIOD | DESTINATION #gen(TO)# <verb> #getEword# #gen(ACTION)# <tense> #gen(TENSE)# | OBJECT #gen(OBJECT)# <after object>
 void after_noun()
 {
     cout << "Processing <afterNoun>" << endl;
@@ -539,7 +539,7 @@ void after_noun()
 }
 
 // Done by: Ased Adus
-// Grammar: <after subject>::= <verb> <tense> PERIOD | <noun> <after noun>
+// Grammar: <after subject>::= <verb> #getEword# #gen(ACTION)# <tense> #gen(TENSE)# PERIOD | <noun> #getEword# <after noun>
 void after_subject()
 {
     cout << "Processing <afterSubject>" << endl;
@@ -565,7 +565,7 @@ void after_subject()
     }
 }
 
-// Grammar: <s>::= [CONNECTOR] <noun> SUBJECT <after subject>
+// Grammar: <s>::= [CONNECTOR #getEword# #gen(CONNECTOR)#] <noun> #getEword# SUBJECT #gen(ACTOR)# <after subject>
 // Done by: Ased Adus
 void s()
 {
